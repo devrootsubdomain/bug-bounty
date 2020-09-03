@@ -16,13 +16,12 @@ wget https://github.com/Edu4rdSHL/findomain/releases/download/2.1.1/findomain-li
 wget https://raw.githubusercontent.com/gwen001/github-search/master/github-subdomains.py
 
 #nuclei 
-go get -u github.com/projectdiscovery/nuclei/v2/cmd/nuclei
-
+git clone https://github.com/projectdiscovery/nuclei.git; cd nuclei/cmd/nuclei/; go build; mv nuclei /usr/local/bin/; nuclei -h
 nuclei -update-templates
 
 #httpx 
 
-GO111MODULE=auto go get -u -v github.com/projectdiscovery/httpx/cmd/http
+GO111MODULE=auto go get -u -v github.com/projectdiscovery/httpx/cmd/httpx
 
 #anew 
 go get -u github.com/tomnomnom/anew
