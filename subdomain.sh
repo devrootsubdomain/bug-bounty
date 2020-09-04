@@ -5,13 +5,16 @@
 
 key='45994bf906d47015e99c9ef0263f9d55430c7fbb'
 
-echo $i	
 
 echo "########## Enter domain name the"  
 
 while IFS= read -r i 
+do 
+echo $i
 
 #Sublist3r , Subfinder , assetfinder , findlinux 
+mkdir dir_$i && cd dir_$i
+
 sublist3r -d $i -v -o op.txt
 subfinder -d $i |tee -a op.txt 
 assetfinder --subs-only $i |tee -a op.txt 
@@ -27,5 +30,7 @@ cat op.txt | sort -u |httpx| anew >> $i.txt
 
 
 nuclei -c 1000 -l $i.txt -t ~/nuclei_all/ -silent  -o $i.final.txt
+
+cd ../
 
 done<$'file'
