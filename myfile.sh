@@ -29,7 +29,7 @@ echo "${GREEN} [+] Updating and installing dependencies ${RESET}"
 echo ""
 
 sudo apt-get -y update
-#sudo apt-get -y upgrade
+sudo apt-get -y upgrade
 
 sudo add-apt-repository -y ppa:apt-fast/stable < /dev/null
 sudo echo debconf apt-fast/maxdownloads string 16 | debconf-set-selections
@@ -54,6 +54,7 @@ sudo apt-fast install -y nmap phantomjs
 sudo apt-fast install -y gem
 sudo apt-fast install -y perl 
 sudo apt-fast install -y parallel
+sudo apt-fast install -y 
 pip3 install jsbeautifier
 echo ""
 echo ""
@@ -89,10 +90,13 @@ echo ""
 echo ""
 sar 1 1 >/dev/null
 #sublist3r 
-git clone https://github.com/aboul3la/Sublist3r.git Sublist3r
-cd Sublist3r
+git clone https://github.com/aboul3la/Sublist3r.git ~/tools/Sublist3r
+cd ~/tools/Sublist3r
 sudo pip3 install -r requirements.txt
+python3 setup install
+
 cd ~
+pip3 install colored 
 #subfinder 
 go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
 #assetfinder
@@ -102,13 +106,13 @@ go get -u github.com/jaeles-project/gospider
 #findlinux 
 wget https://github.com/Edu4rdSHL/findomain/releases/download/2.1.1/findomain-linux
 chmod +x findomain-linux
-cp findomain-linux /usr/bin/findomain
+mv findomain-linux /usr/bin/findomain
+
 #gitsub 
 wget https://raw.githubusercontent.com/gwen001/github-search/master/github-subdomains.py
 chmod +x github-subdomains.py
-cp github-subdomains.py /usr/bin/gitsub
-#nuclei 
-go get -u github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+mv github-subdomains.py /usr/bin/gitsub
+
 #httpx 
 go get -u -v github.com/projectdiscovery/httpx/cmd/httpx
 #anew 
@@ -122,9 +126,29 @@ apt-fast install wfuzz
 #aquatone
 go get -u github.com/michenriksen/aquatone 
 #massdsns
-git clone https://github.com/blechschmidt/massdns.git ~/massdns
-cd ~/massdns
+git clone https://github.com/blechschmidt/massdns.git ~/tools/massdns
+cd ~/tools/massdns
 make 
 cd 
 #Subover
 go get -u github.com/Ice3man543/SubOver
+
+
+#subfinder 
+go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
+#assetfinder
+go get -u github.com/tomnomnom/assetfinder
+#gospider       
+go get -u github.com/jaeles-project/gospider
+
+#nuclei 
+git clone https://github.com/projectdiscovery/nuclei.git; cd nuclei/cmd/nuclei/; go build; mv nuclei /usr/local/bin/; nuclei -update-templates ; rm -r nuclei
+mkdir ~/all/ 
+cp nuclei-templates/*/*.yaml ~/all/ 
+rm nuclei-templates -r
+
+cd ~/tools/
+
+
+
+mkdir test && cd test 
