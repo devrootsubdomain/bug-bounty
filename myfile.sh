@@ -93,9 +93,14 @@ sar 1 1 >/dev/null
 git clone https://github.com/aboul3la/Sublist3r.git ~/tools/Sublist3r
 cd ~/tools/Sublist3r
 sudo pip3 install -r requirements.txt
-python3 setup install
+python3 setup.py install
 
 cd ~
+wget https://github.com/s0md3v/XSStrike/archive/3.1.5.zip
+unzip 3.1.5.zip -d xss & cd xss
+python3  xsstrike.py 
+cd ~ 
+
 pip3 install colored 
 #subfinder 
 go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
@@ -103,6 +108,8 @@ go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
 go get -u github.com/tomnomnom/assetfinder
 #gospider       
 go get -u github.com/jaeles-project/gospider
+#hakrawler
+go get github.com/hakluke/hakrawler
 #findlinux 
 wget https://github.com/Edu4rdSHL/findomain/releases/download/2.1.1/findomain-linux
 chmod +x findomain-linux
@@ -142,13 +149,17 @@ go get -u github.com/tomnomnom/assetfinder
 go get -u github.com/jaeles-project/gospider
 
 #nuclei 
-git clone https://github.com/projectdiscovery/nuclei.git; cd nuclei/cmd/nuclei/; go build; mv nuclei /usr/local/bin/; nuclei -update-templates ; rm -r nuclei
-mkdir ~/all/ 
-cp nuclei-templates/*/*.yaml ~/all/ 
-rm nuclei-templates -r
+git clone https://github.com/projectdiscovery/nuclei.git; cd nuclei/cmd/nuclei/; go build; mv nuclei /usr/local/bin/; nuclei -update-templates;  
+cd ~/ && mkdir ~/all/ 
 
-cd ~/tools/
+cp ~/nuclei-templates/*/*.yaml ~/all/ 
+cd ~/
+rm ~/nuclei-templates -r 
+rm ~/all/basic-cors-flash.yaml ~/all/missing-x-frame-options.yaml ~/all/tech-detect.yaml
 
 
+cd ~/
 
-mkdir test && cd test 
+mkdir test && cd test ; wget https://raw.githubusercontent.com/devrootsubdomain/bug-bounty/master/subdomain.sh
+
+
