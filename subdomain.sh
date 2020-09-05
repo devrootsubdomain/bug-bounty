@@ -29,10 +29,12 @@ curl -s https://dns.bufferover.run/dns?q=.$i |jq -r .FDNS_A[] | sed -s 's/,/\n/g
 
 echo "Done here "
 
-cat op.txt | sort -u |httpx -timeout 3 --threads 1000 --follow-redirect -slient| anew  $i.txt
 
 
-nuclei -c 1000 -l $i.txt -t ~/all/ -silent  -o $i.final.txt
+cat op.txt | sort -u |httpx -timeout 3 --threads 1000 -silent| tee -a $i.txt 
+
+
+nuclei -c 1000 -l $i.txt -t ~/all/ -silent  -o $i.final.txt &
 
 cd ../
 
