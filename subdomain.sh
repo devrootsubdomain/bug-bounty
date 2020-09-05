@@ -19,9 +19,9 @@ echo $i
 mkdir dir_$i && cd dir_$i
 
 sublist3r -d $i -v -o op.txt
-subfinder -d $i |tee -a op.txt 
+subfinder -d $i -silent |tee -a op.txt 
 assetfinder --subs-only $i |tee -a op.txt 
-findomain-linux -t $i |tee -a op.txt 
+findomain -t $i -q --threads 100|tee -a op.txt 
 gitsub -t $key -d $i |tee -a op.txt 
 
 curl -s https://dns.bufferover.run/dns?q=.$i |jq -r .FDNS_A[] | sed -s 's/,/\n/g' |tee -a op.txt 
