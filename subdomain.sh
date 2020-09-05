@@ -32,7 +32,7 @@ echo "Done here "
 cat op.txt | sort -u |httpx -timeout 3 --threads 1000 --follow-redirect -slient| anew  $i.txt
 
 
-nuclei -c 1000 -l $i.txt -t ~/nuclei_all/ -silent  -o $i.final.txt
+nuclei -c 1000 -l $i.txt -t ~/all/ -silent  -o $i.final.txt
 
 cd ../
 
