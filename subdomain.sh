@@ -6,7 +6,7 @@
 key='45994bf906d47015e99c9ef0263f9d55430c7fbb'
 
 
-echo "########## Enter domain name the"  
+#echo "########## Enter domain name the"  
 
 while IFS= read -r i 
 do 
@@ -26,7 +26,7 @@ curl -s https://dns.bufferover.run/dns?q=.$i |jq -r .FDNS_A[] | sed -s 's/,/\n/g
 
 echo "Done here "
 
-cat op.txt | sort -u |httpx| anew >> $i.txt
+cat op.txt | sort -u |httpx -timeout 3 --threads 1000 --follow-redirect -slient| anew  $i.txt
 
 
 nuclei -c 1000 -l $i.txt -t ~/nuclei_all/ -silent  -o $i.final.txt
