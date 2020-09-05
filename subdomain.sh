@@ -8,6 +8,9 @@ key='45994bf906d47015e99c9ef0263f9d55430c7fbb'
 
 #echo "########## Enter domain name the"  
 
+mkdir test && cd test 
+cp ../file .
+
 while IFS= read -r i 
 do 
 echo $i
