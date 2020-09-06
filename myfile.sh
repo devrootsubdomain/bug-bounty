@@ -112,6 +112,12 @@ go get -u github.com/tomnomnom/assetfinder
 go get -u github.com/jaeles-project/gospider
 #hakrawler
 go get github.com/hakluke/hakrawler
+alias hakrawler='~/go/bin/hakrawler'
+
+#subrake
+pip3 install subrake
+#ffuf
+go get github.com/ffuf/ffuf
 #findlinux 
 wget https://github.com/Edu4rdSHL/findomain/releases/download/2.1.1/findomain-linux
 chmod +x findomain-linux
@@ -141,6 +147,19 @@ make
 cd 
 #Subover
 go get -u github.com/Ice3man543/SubOver
+
+ 
+cd ~/
+echo "${GREEN} #### Downloading wordlists #### ${RESET}"
+git clone https://github.com/assetnote/commonspeak2-wordlists ~/tools/Wordlists/commonspeak2-wordlists
+git clone https://github.com/fuzzdb-project/fuzzdb ~/tools/Wordlists/fuzzdb
+git clone https://github.com/1N3/IntruderPayloads ~/tools/Wordlists/IntruderPayloads
+git clone https://github.com/swisskyrepo/PayloadsAllTheThings ~/tools/Wordlists/PayloadsAllTheThings
+git clone https://github.com/danielmiessler/SecLists ~/tools/Wordlists/SecLists
+cd ~/tools/Wordlists/SecLists/Discovery/DNS/
+##THIS FILE BREAKS MASSDNS AND NEEDS TO BE CLEANED
+cat dns-Jhaddix.txt | head -n -14 > clean-jhaddix-dns.txt
+printf "${BLUE} Wordlists downloaded ${RESET}"
 
 
 #subfinder 
