@@ -97,7 +97,7 @@ python3 setup.py install
 
 cd ~
 wget https://github.com/s0md3v/XSStrike/archive/3.1.5.zip
-unzip 3.1.5.zip -d xss & cd xss
+unzip 3.1.5.zip  & cd XSStrike-3.1.5/
 python3  xsstrike.py 
 cd ~ 
 
