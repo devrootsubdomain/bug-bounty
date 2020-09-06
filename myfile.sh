@@ -176,7 +176,7 @@ cd ~/ && mkdir ~/all/
 cp ~/nuclei-templates/*/*.yaml ~/all/ 
 cd ~/
 rm ~/nuclei-templates -r 
-rm ~/all/basic-cors-flash.yaml ~/all/missing-x-frame-options.yaml ~/all/tech-detect.yaml ~/all/security.txt.yaml ~/all/favicon-detection.yaml
+rm ~/all/basic-cors-flash.yaml ~/all/missing-x-frame-options.yaml ~/all/tech-detect.yaml ~/all/security.txt.yaml ~/all/favicon-detection.yaml ~/all/robots.txt.yaml
 
 cd ~/
 
