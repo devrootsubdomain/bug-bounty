@@ -101,7 +101,9 @@ unzip 3.1.5.zip -d xss & cd xss
 python3  xsstrike.py 
 cd ~ 
 
-pip3 install colored 
+pip3 install colored  tldextract argparse requests texttable keyboard tldextract termcolor colored goop lockfile Unidecode
+
+
 #subfinder 
 go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
 #assetfinder
