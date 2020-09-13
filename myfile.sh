@@ -128,6 +128,9 @@ wget https://raw.githubusercontent.com/gwen001/github-search/master/github-subdo
 chmod +x github-subdomains.py
 mv github-subdomains.py /usr/bin/gitsub
 
+#jaeles
+GO111MODULE=on go get github.com/jaeles-project/jaeles
+
 #httpx 
 go get -u -v github.com/projectdiscovery/httpx/cmd/httpx
 #anew 
@@ -136,6 +139,8 @@ go get -u github.com/tomnomnom/anew
 go get github.com/tomnomnom/waybackurls
 #gobuster
 go get -u github.com/OJ/gobuster
+#shodan
+easy_install shodan
 #wfuzz
 apt-fast install wfuzz
 #aquatone
@@ -151,17 +156,23 @@ go get -u github.com/Ice3man543/SubOver
  
 cd ~/
 echo "${GREEN} #### Downloading wordlists #### ${RESET}"
-git clone https://github.com/assetnote/commonspeak2-wordlists ~/tools/Wordlists/commonspeak2-wordlists
-git clone https://github.com/fuzzdb-project/fuzzdb ~/tools/Wordlists/fuzzdb
-git clone https://github.com/1N3/IntruderPayloads ~/tools/Wordlists/IntruderPayloads
-git clone https://github.com/swisskyrepo/PayloadsAllTheThings ~/tools/Wordlists/PayloadsAllTheThings
-git clone https://github.com/danielmiessler/SecLists ~/tools/Wordlists/SecLists
+git clone https://github.com/assetnote/commonspeak2-wordlists ~/tools/Wordlists/commonspeak2-wordlists &
+git clone https://github.com/fuzzdb-project/fuzzdb ~/tools/Wordlists/fuzzdb &
+git clone https://github.com/1N3/IntruderPayloads ~/tools/Wordlists/IntruderPayloads &
+git clone https://github.com/swisskyrepo/PayloadsAllTheThings ~/tools/Wordlists/PayloadsAllTheThings &
+git clone https://github.com/danielmiessler/SecLists ~/tools/Wordlists/SecLists &
+git clone https://github.com/random-robbie/bruteforce-lists.git &
+wget https://gist.githubusercontent.com/jhaddix/f64c97d0863a78454e44c2f7119c2a6a/raw/96f4e51d96b2203f19f6381c8c545b278eaa0837/all.txt &
+
 cd ~/tools/Wordlists/SecLists/Discovery/DNS/
 ##THIS FILE BREAKS MASSDNS AND NEEDS TO BE CLEANED
 cat dns-Jhaddix.txt | head -n -14 > clean-jhaddix-dns.txt
 printf "${BLUE} Wordlists downloaded ${RESET}"
 
-
+#masscan
+apt install masscan 
+#qs replace
+go get -u github.com/tomnomnom/qsreplace
 #subfinder 
 go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
 #assetfinder
@@ -174,9 +185,9 @@ git clone https://github.com/projectdiscovery/nuclei.git; cd nuclei/cmd/nuclei/;
 cd ~/ && mkdir ~/all/ 
 
 cp ~/nuclei-templates/*/*.yaml ~/all/ 
-cd ~/
+
 rm ~/nuclei-templates -r 
-rm ~/all/basic-cors-flash.yaml ~/all/missing-x-frame-options.yaml ~/all/tech-detect.yaml ~/all/security.txt.yaml ~/all/favicon-detection.yaml ~/all/robots.txt.yaml
+rm ~/all/basic-cors-flash.yaml ~/all/missing-* ~/all/tech-detect.yaml ~/all/security.txt.yaml ~/all/favicon-detection.yaml ~/all/robots.txt.yaml 
 
 cd ~/
 
