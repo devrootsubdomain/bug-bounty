@@ -153,6 +153,11 @@ cd
 #Subover
 go get -u github.com/Ice3man543/SubOver
 
+#osmedeus
+git clone https://github.com/j3ssie/Osmedeus
+cd Osmedeus
+./install.sh &
+
  
 cd ~/
 echo "${GREEN} #### Downloading wordlists #### ${RESET}"
