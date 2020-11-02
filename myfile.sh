@@ -154,11 +154,12 @@ cd
 go get -u github.com/Ice3man543/SubOver
 
 #osmedeus
-git clone https://github.com/j3ssie/Osmedeus
-cd Osmedeus
-./install.sh &
+#git clone https://github.com/j3ssie/Osmedeus
+#cd Osmedeus
+#./install.sh &
 
- 
+
+<<'COMMENTS' 
 cd ~/
 echo "${GREEN} #### Downloading wordlists #### ${RESET}"
 git clone https://github.com/assetnote/commonspeak2-wordlists ~/tools/Wordlists/commonspeak2-wordlists &
@@ -174,16 +175,17 @@ cd ~/tools/Wordlists/SecLists/Discovery/DNS/
 cat dns-Jhaddix.txt | head -n -14 > clean-jhaddix-dns.txt
 printf "${BLUE} Wordlists downloaded ${RESET}"
 
+COMMENTS
 #masscan
 apt install masscan 
 #qs replace
-go get -u github.com/tomnomnom/qsreplace
+go get -u github.com/tomnomnom/qsreplace &
 #subfinder 
-go get -u github.com/projectdiscovery/subfinder/cmd/subfinder
+go get -u github.com/projectdiscovery/subfinder/cmd/subfinder &
 #assetfinder
-go get -u github.com/tomnomnom/assetfinder
+go get -u github.com/tomnomnom/assetfinder &
 #gospider       
-go get -u github.com/jaeles-project/gospider
+go get -u github.com/jaeles-project/gospider &
 
 #nuclei 
 git clone https://github.com/projectdiscovery/nuclei.git; cd nuclei/cmd/nuclei/; go build; mv nuclei /usr/local/bin/; nuclei -update-templates;  
